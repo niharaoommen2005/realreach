@@ -59,7 +59,24 @@ body { font-family: Arial, sans-serif; scroll-behavior: smooth; }
 .hero-content {
   position: relative;
   z-index: 1;
+  text-align: center;      /* Keep text centered inside the block */
+  max-width: 600px;        /* Limit width so it doesn't stretch too much */
+  margin-left: 10%;         /* Push the block slightly from the left */
+  margin-right: auto;      /* Keep right side flexible */
 }
+
+
+.hero-content h2 {
+  font-size: 3rem;           /* Increase main heading font size */
+  line-height: 1.4;          /* Increase spacing between lines */
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.5rem;         /* Increase subheading font size */
+  line-height: 1.8;          /* Increase spacing between lines */
+}
+
 .hero .btn {
   display: inline-block;
   padding: 10px 20px;
