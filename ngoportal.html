@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Connect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Community Connect Portal</h1>
+    </header>
+    <main>
+
+        <section id="landing">
+            <h2>Welcome</h2>
+            <div class="choice-buttons">
+                <button onclick="showLogin()">Login</button>
+                <button onclick="showSignUp()">Sign Up</button>
+            </div>
+        </section>
+
+        <section id="loginSection" class="hidden">
+            <h2>Login</h2>
+            <form>
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" required>
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" required>
+                <button type="submit">Login</button>
+                <button type="button" onclick="backToLanding()">Back</button>
+            </form>
+        </section>
+
+        <section id="signUpChoice" class="hidden">
+            <h2>Sign Up As</h2>
+            <div class="choice-buttons">
+                <button onclick="showNGOForm()">NGO</button>
+                <button onclick="showVolunteerForm()">Volunteer</button>
+            </div>
+            <button type="button" onclick="backToLanding()">Back</button>
+        </section>
+
+        <section id="ngoFormSection" class="hidden">
+            <h2>NGO Registration</h2>
+            <form id="ngoForm">
+                <label for="ngoName">NGO Name</label>
+                <input type="text" id="ngoName" required>
+                <label for="ngoEmail">Email</label>
+                <input type="email" id="ngoEmail" required>
+                <label for="ngoDocs">Upload Documents (ID / Registration)</label>
+                <input type="file" id="ngoDocs" required>
+                <button type="submit">Register NGO</button>
+                <button type="button" onclick="backToSignUpChoice()">Back</button>
+            </form>
+        </section>
+
+        <section id="volunteerFormSection" class="hidden">
+            <h2>Volunteer Registration</h2>
+            <form id="volunteerForm">
+                <label for="volName">Full Name</label>
+                <input type="text" id="volName" required>
+                <label for="volEmail">Email</label>
+                <input type="email" id="volEmail" required>
+                <label for="volLocation">Location (City)</label>
+                <input type="text" id="volLocation" required>
+                <label for="volSkills">Skills</label>
+                <select id="volSkills" multiple>
+                    <option value="teaching">Teaching</option>
+                    <option value="coding">Coding</option>
+                    <option value="cooking">Cooking</option>
+                    <option value="logistics">Logistics</option>
+                </select>
+                <label for="volInterests">Interests</label>
+                <select id="volInterests" multiple>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="environment">Environment</option>
+                    <option value="disability">Disability Support</option>
+                    <option value="education">Education</option>
+                </select>
+                <button type="submit">Register Volunteer</button>
+                <button type="button" onclick="backToSignUpChoice()">Back</button>
+            </form>
+        </section>
+
+    </main>
+
+    <script>
+        const landing = document.getElementById('landing');
+        const loginSection = document.getElementById('loginSection');
+        const signUpChoice = document.getElementById('signUpChoice');
+        const ngoFormSection = document.getElementById('ngoFormSection');
+        const volunteerFormSection = document.getElementById('volunteerFormSection');
+
+        function showLogin() {
+            landing.classList.add('hidden');
+            loginSection.classList.remove('hidden');
+        }
+
+        function showSignUp() {
+            landing.classList.add('hidden');
+            signUpChoice.classList.remove('hidden');
+        }
+
+        function showNGOForm() {
+            signUpChoice.classList.add('hidden');
+            ngoFormSection.classList.remove('hidden');
+        }
+
+        function showVolunteerForm() {
+            signUpChoice.classList.add('hidden');
+            volunteerFormSection.classList.remove('hidden');
+        }
+
+        function backToLanding() {
+            loginSection.classList.add('hidden');
+            signUpChoice.classList.add('hidden');
+            landing.classList.remove('hidden');
+        }
+
+        function backToSignUpChoice() {
+            ngoFormSection.classList.add('hidden');
+            volunteerFormSection.classList.add('hidden');
+            signUpChoice.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
